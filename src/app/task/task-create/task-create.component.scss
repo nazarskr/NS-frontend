@@ -1,0 +1,4 @@
+@import '../../styles/mixins.scss';
+form {
+    @include forms;
+}

@@ -1,0 +1,13 @@
+@mixin forms {
+    width: 400px;
+    margin: 0 auto;
+    p {
+        line-height: 50px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    mat-form-field {
+        width: 100%;
+    }
+}

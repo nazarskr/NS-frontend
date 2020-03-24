@@ -1,0 +1,10 @@
+<div *ngIf="taskId" id="shareTask">
+    <h3>Share this task</h3>
+    <div *ngFor="let user of users | taskShare: taskUsers">
+        <mat-card (click)="onShareTask(user.login)">
+            <p>{{user.login}}</p>
+            <p>{{user.email}}</p>
+        </mat-card>
+    </div>
+    <button mat-raised-button color="primary" (click)="hide()">Hide</button>
+</div>

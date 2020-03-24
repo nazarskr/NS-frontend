@@ -1,0 +1,21 @@
+<form [formGroup]="form" (submit)="onSaveTask()">
+    <p *ngIf="mode === 'create'">Create task</p>
+    <p *ngIf="mode === 'edit'">Edit task</p>
+    <mat-form-field>
+        <input matInput 
+               type="text"
+               formControlName="title"
+               placeholder="Task Title">
+               <mat-error *ngIf="form.get('title').invalid">Please enter a task title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput 
+                  rows="6"
+                  formControlName="content" 
+                  placeholder="Task Content"></textarea>
+                  <mat-error *ngIf="form.get('content').invalid">Please enter a task content</mat-error>
+    </mat-form-field>
+    <button mat-raised-button 
+            color="primary"
+            type="submit">Save task</button>
+</form>

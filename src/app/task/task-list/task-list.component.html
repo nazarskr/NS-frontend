@@ -1,0 +1,16 @@
+<mat-accordion *ngIf="userTasks.length > 0">
+    <mat-expansion-panel *ngFor="let task of userTasks">
+      <mat-expansion-panel-header>
+        {{task.title}}
+      </mat-expansion-panel-header>
+        {{task.content}}
+      <p *ngIf="task.users[0] !== userName">Shared by {{task.users[0]}}</p>
+      <mat-action-row>
+        <button mat-raised-button color="primary" (click)="shareTask(task.id)">Share</button>
+        <button mat-raised-button color="accent" [routerLink]="['/edit', task.id]">Edit</button>
+        <button mat-raised-button color="warn" (click)="onDelete(task.id)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="userTasks.length === 0">No tasks yet</p>
+<app-task-share [taskId]="taskId" [userTasks]="userTasks" *ngIf="taskId" (resetTaskId)="resetTaskId(event$)"></app-task-share>

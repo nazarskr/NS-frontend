@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <h1 routerLink="">NS Task</h1>
+    <div *ngIf="!registered" id="register">
+        <a routerLink="auth/register">Register</a>
+        or
+        <a href="auth/login">Login</a>
+    </div>
+    <p *ngIf="registered && login" id="userName" (click)="homeUser()">{{login}}</p>
+    <div class="userRoom">
+        <p routerLink="create" *ngIf="registered" routerLinkActive="active">New Task</p>
+        <p *ngIf="registered" (click)="logout()">Logout</p>
+    </div>
+</mat-toolbar>

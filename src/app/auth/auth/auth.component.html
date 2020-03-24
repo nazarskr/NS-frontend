@@ -1,0 +1,33 @@
+<form [formGroup]="form" (submit)="onSendAuth()">
+    <p *ngIf="mode === 'register'">Register</p>
+    <p *ngIf="mode === 'login'">Login</p>
+    <mat-form-field>
+        <input matInput 
+               type="text"
+               formControlName="login"
+               placeholder="User Name">
+               <mat-error *ngIf="form.get('login').invalid">Please enter your name</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="mode === 'register'">
+        <input matInput 
+               type="email"
+               formControlName="email"
+               placeholder="User Email">
+               <mat-error *ngIf="form.get('email').invalid">Please enter a correct email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput 
+               type="password"
+               formControlName="password"
+               placeholder="User Password">
+               <mat-error *ngIf="form.get('password').invalid">Please enter a password</mat-error>
+    </mat-form-field>
+    <button mat-raised-button 
+            color="primary"
+            type="submit"
+            *ngIf="mode ==='register'">Register</button>
+    <button mat-raised-button 
+            color="accent"
+            type="submit"
+            *ngIf="mode ==='login'" (click)="login">Login</button>
+</form>
